@@ -1,1 +1,1 @@
-This is a *blog*
+This blog is currently under construction.
