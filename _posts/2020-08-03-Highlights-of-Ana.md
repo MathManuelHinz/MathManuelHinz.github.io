@@ -10,7 +10,7 @@ Let $(I_n)_{n\in\mathbb{N}}$ be a sequence of intervals $\subset \mathbb{R}$ s.t
 
 1. $I_n$ is none empty and compact ($I_n=[a_n,b_n]$ with $a_n\leq b_n$).
 2. $\forall_{n\in\mathbb{N}}: I_{n+1}\subseteq I_n$.
-3. $\forall_{\epsilon>0} \exist n\in\mathbb{N}: b_n-a_n <\epsilon$.
+3. $\forall_{\epsilon>0} \exists n\in\mathbb{N}: b_n-a_n <\epsilon$.
 
 $$\left\vert\bigcap_{n\in\mathbb{N}} I_n\right\vert = 1$$
 
@@ -19,7 +19,7 @@ This can be used to define roots or to help proof Bolzano-Weierstraß.
 ### Convergence
 Let $(X,d)$ be a metric space.
 Let $\varphi:\mathbb{N}\to X$ be a sequence. The sequence converges to $x\in X$ if :
-$$\forall_{\epsilon>0}\exist_{N_\epsilon\in\mathbb{N}}:\forall_{n\geq N_\epsilon} d(\varphi(n), x)<\epsilon.$$   
+$$\forall_{\epsilon>0}\exists_{N_\epsilon\in\mathbb{N}}:\forall_{n\geq N_\epsilon} d(\varphi(n), x)<\epsilon.$$   
 
 ### Monotonic sequences:
 Setting: metric space ($\mathbb{R},|\cdot|$).
@@ -43,7 +43,7 @@ This follows directly from the previous two statements. A different proof uses a
 Setting: metric space ($X,d$).
 
 Let $\varphi:\mathbb{N}\to X$ be a sequence. This sequence is called cauchy if:
-$$\forall_{\epsilon>0}\exist_{N_\epsilon\in \mathbb{N}}\forall_{n,m\geq N_\epsilon}: d(\varphi(n),\varphi(m))<\epsilon.$$
+$$\forall_{\epsilon>0}\exists_{N_\epsilon\in \mathbb{N}}\forall_{n,m\geq N_\epsilon}: d(\varphi(n),\varphi(m))<\epsilon.$$
 
 X is called complete or Cauchy space if every cauchy sequence converges. $(\mathbb{R}, \vert\cdot\vert)$ is complete.
 
