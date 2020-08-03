@@ -75,7 +75,7 @@ You can also define $f:A\to Y$, $A\subset X$. To keep things concise I will writ
 Setting: metric spaces ($X,d_X$) and ($X,d_Y$), $x\in X$ 
 A function $f:X\to Y$ is said to be continuous in $\bar{x}\in X$ if 
 
-$$\forall_{\epsilon>0}\exist_{\delta>0}\forall_{x: d_X(x,\bar{x})<\delta}:d_Y(f(x),f(\bar{x}))<\epsilon.$$
+$$\forall_{\epsilon>0}\exists_{\delta>0}\forall_{x: d_X(x,\bar{x})<\delta}:d_Y(f(x),f(\bar{x}))<\epsilon.$$
 
 We call $f$ continuous in $A\subset X$ if it is continuous for all $x\in A$.
 
@@ -96,7 +96,7 @@ A function $f:X\to Y$ is continuous in $A$ iff $O\subset Y$ open $\implies f^{-1
 Setting: metric spaces ($X,d_X$) and ($X,d_Y$), $A\subset X$ 
 
 A function $f: X\to Y$ is called uniformly continuous if 
-$$\forall_{\epsilon>0}\exist_{\delta>0}\forall_{x,y: d_X(x,y)<\delta}:d_Y(f(x),f(y))<\epsilon.$$
+$$\forall_{\epsilon>0}\exists_{\delta>0}\forall_{x,y: d_X(x,y)<\delta}:d_Y(f(x),f(y))<\epsilon.$$
 
 Note that $\delta$ DOES NOT DEPEND on $x$ or $y$.
 
