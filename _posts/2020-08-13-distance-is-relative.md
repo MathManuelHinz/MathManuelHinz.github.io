@@ -48,8 +48,6 @@ This seems weird right ? The distance between two points is either 0 or 1. There
 
 ### Levenshtein distance
 
-//Ausschmücken was ist das
-
 While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow. With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $|a|,|b|$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
 
 $$\text{lev}_{a,b}(i,j)=\begin{cases}
