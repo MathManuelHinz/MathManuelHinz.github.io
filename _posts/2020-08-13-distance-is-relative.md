@@ -1,4 +1,4 @@
-# Distance is relative: Introduction
+# Distance is relative: Introduction (WIP)
 
 Most people could probably calculate the distance between two points and even more have an intuition about what the distance represents. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science.
 
