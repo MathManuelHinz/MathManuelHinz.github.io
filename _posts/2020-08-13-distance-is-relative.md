@@ -75,7 +75,7 @@ Therefore $d(X,Z)\leq d(X,Y)+d(Y,Z)$ i.e. it is to strict to demand a strict ine
 
 ### Definition
 
-Given a set $\xi$, a function $d_{\xi}: \xi \times \xi \to \mathbb{R}_{\geq 0}$ is called a metric (and $(\xi ,d_{\xi})$ a metric space) if
+Given a set $\xi$, a function $d_{\xi}: \xi \times \xi \to \mathbb{R}_{+}$ is called a metric (and $(\xi ,d_{\xi})$ a metric space) if
 1. $\forall_{x,y\in\xi}: d(x,y)=d(y,x)$ (symmetry).
 2. $\forall_{x,y\in\xi}: d(x,y)=0\iff x=y$
 3. $\forall_{x,y,z\in\xi}: d(x,z)\leq d(x,y)+d(y,z)$ (triangle-inequality)
