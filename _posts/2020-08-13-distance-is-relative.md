@@ -8,7 +8,7 @@ Most people could probably calculate the distance between two points and even mo
 
 Let's begin with the most familiar example: what is the the distance between two points in 2 dimensions $\left(\mathbb{R}^2\right)$. Lets call the points $X=(x_1, x_2)$ and $Y=(y_1,y_2)$. Pythagoras tells us, that the length of the hypotenuse (and thereby the distance) equals $d(X,Y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}$. 
 
-![Distance between two points](Abstand1.png)
+![Distance between two points](/images/Abstand1.png)
 
 We could also write that as $d:\mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}_{\geq 0}$ 
 
