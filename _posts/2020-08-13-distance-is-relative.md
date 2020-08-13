@@ -30,7 +30,7 @@ $$d(X,Y)=\sum_{k=1}^n \vert x_k-y_k\vert$$
 
 Let's think about the following function:
 
-$$d(X,Y)=\max\{|x_k-y_k| : 1\leq k \leq n\}$$
+$$d(X,Y)=\max\{\vert x_k-y_k\vert  : 1\leq k \leq n\}$$
 
 This function takes two points in space ($\mathbb{R}^n$) and returns the maximum absolute difference in one of the coordinates. What is $d((0,1),(1,1))$, what is $d((0.5,1), (1,1))$ ? Does this function satisfy your intuition ? 
 
@@ -48,7 +48,7 @@ This seems weird right ? The distance between two points is either 0 or 1. There
 
 ### Levenshtein distance
 
-While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow. With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $|a|,|b|$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
+While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow. With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vertb\vert$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
 
 $$\text{lev}_{a,b}(i,j)=\begin{cases}
     \max(i,j) & \text{ if} \min(i,j)=0\\
@@ -59,7 +59,7 @@ $$\text{lev}_{a,b}(i,j)=\begin{cases}
     \end{cases} & \text{otherwise}
 \end{cases}$$
 
-We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(|a|,|b|)$. I think it is a lot harder to judge the quality of this definition. The intuition behind the levenshtein distance is the following: Each case (2nd. and 3rd. case are the same, but for symmetry) represents one transformation of one of the strings
+We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(\vert a\vert,\vert b\vert)$. I think it is a lot harder to judge the quality of this definition. The intuition behind the levenshtein distance is the following: Each case (2nd. and 3rd. case are the same, but for symmetry) represents one transformation of one of the strings
 
 1. Insertion
 2. Deletion
@@ -88,11 +88,11 @@ To check if a function is a metric we have to check these three properties. Typi
 
 ### The euclidean metric is in fact a metric
 
-Setting: $x,y,z\in\mathbb{R}^2$, $|\cdot|_2$ is the euclidean distance
+Setting: $x,y,z\in\mathbb{R}^2$, $\vert \cdot\vert_2$ is the euclidean distance
 
 1. $d(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}=\sqrt{(-x_1+y_1)^2+(-x_2+y_2)^2}=d(y,x)$
 2. $d(x,y)=0 \iff (x_1-y_1)=0 \land (x_2-y_2)=0 \iff x=y$.
-3. One can proof that $|x+y|_2\leq|x|_2+|y|_2$. Substituting $x'=x-y$ and $y'=y-z$ we get $|x-z|_2 \leq |x-y|_2+|y-z|_2$.
+3. One can proof that $\vert x+y\vert_2\leq\vert x\vert_2+\vert y\vert_2$. Substituting $x'=x-y$ and $y'=y-z$ we get $\vert x-z\vert_2 \leq \vert x-y\vert_2+\vert y-z\vert_2$.
 
 ### $\delta$ is a metric 
 
@@ -110,7 +110,7 @@ Let's talk about a concept closely related to distance: length. If we think abou
 
 For a $\mathbb{R}$-[vector space](https://en.wikipedia.org/wiki/Vector_space) V a function $f:V\to [0,\infty)$ is called a norm if 
 
-1. $\forall_{\lambda\in \mathbb{R}, x\in V}: f(\lambda x)=|\lambda|f(x).$
+1. $\forall_{\lambda\in \mathbb{R}, x\in V}: f(\lambda x)=\vert \lambda\vert f(x).$
 2. $\forall_{x,y\in V}: f(x+y)\leq f(x)+f(y)$
 3. $\forall_{x\in V}: f(x)=0\iff x=0$
 
@@ -134,16 +134,16 @@ A euclidean vector space (vector space with **a** dot product<sup id="a1">[1](#f
 
 ## Extra Proofs
 
-### $|x+y|_2\leq|x|_2+|y|_2$
+### $\vert x+y\vert_2\leq\vert x\vert_2+\vert y\vert_2$
 
 Proof (think about the details !)
 
 Setting: $x,y\in\mathbb{R}^n$, $\langle x,y\rangle$ is the dot product of two vectors. 
 
-Then $|x+y|_2\leq|x|_2+|y|_2$ follows by taking the square root after showing :
+Then $\vert x+y\vert_2\leq\vert x\vert_2+\vert y\vert_2$ follows by taking the square root after showing :
 
-$$|x+y|_2^2=|x|_2^2+2 \langle x,y\rangle +|y|_2^2\leq |x|_2^2+2|x|_2|y|_2 +|y|_2^2 = (|x|_2+|y|_2)^2.$$
+$$\vert x+y\vert_2^2=\vert x\vert_2^2+2 \langle x,y\rangle +\vert y\vert_2^2\leq \vert x\vert_2^2+2\vert x\vert_2\vert y\vert_2 +\vert y\vert_2^2 = (\vert x\vert_2+\vert y\vert_2)^2.$$
 
-$|x|_2^2+2 \langle x,y\rangle +|y|_2^2\leq |x|_2^2+2|x|_2|y|_2 +|y|_2^2$ uses the following inequality : $|\langle x,y\rangle|_2^2\leq |x|_2|y|_2^2$.
+$\vert x\vert_2^2+2 \langle x,y\rangle +\vert y\vert_2^2\leq \vert x\vert_2^2+2\vert x\vert_2\vert y\vert_2 +\vert y\vert_2^2$ uses the following inequality : $\vert \langle x,y\rangle\vert_2^2\leq \vert x\vert_2\vert y\vert_2^2$.
 
 <b id="f1">1</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a1)
