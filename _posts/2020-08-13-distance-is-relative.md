@@ -1,6 +1,6 @@
 # Distance is relative: Introduction (WIP)
 
-Most people could probably calculate the distance between two points and even more have an intuition about what the distance represents. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science.
+Most people could probably calculate the distance between two points and even more have an intuition about how distance works. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science.
 
 ## Examples
 
@@ -32,7 +32,7 @@ Let's think about the following function:
 
 $$d(X,Y)=\max\{\vert x_k-y_k\vert  : 1\leq k \leq n\}$$
 
-This function takes two points in space ($\mathbb{R}^n$) and returns the maximum absolute difference in one of the coordinates. What is $d((0,1),(1,1))$, what is $d((0.5,1), (1,1))$ ? Does this function satisfy your intuition ? 
+This function takes two points in space ($\mathbb{R}^n$) and returns the maximum absolute difference in one of the coordinates. What is $d((1,0.5),(1,1))$, what is $d((0.8,0.5), (1,1))$ ? Does this function satisfy your intuition ? 
 
 ### Does this describe some sort of distance ? 
 
@@ -43,8 +43,7 @@ $$\delta:X\times X \to \{0,1\}, \delta(x,y)=\begin{cases}
     1&\text{ otherwise}\\
 \end{cases}$$
 
-This seems weird right ? The distance between two points is either 0 or 1. There is no increase in distance if we pull our points farther away. But in some mathematical sense this does describe a distance !
-
+This seems weird right ? The distance between two points is either 0 or 1. There is no increase in distance if we pull our points farther away. But in some mathematical sense this does describe a distance!
 
 ### Levenshtein distance
 
@@ -69,7 +68,7 @@ While the initial idea of distance between two strings seems logical, this defin
 
 ## Metrics
 
-Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should the output be ? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right ? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us ? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. If I would ask: "What does this tell us about $d(X,Z)$ ?" Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right ? After all the shortest distance between two points should be a straight line, shouldn't it ? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
+Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should be the output ? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right ? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us ? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. If I would ask: "What does this tell us about $d(X,Z)$ ?" Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right ? After all the shortest distance between two points should be a straight line, shouldn't it ? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
 $$d(X,Y)+d(Y,Z)=1+1=d(X,Z).$$
 Therefore $d(X,Z)\leq d(X,Y)+d(Y,Z)$ i.e. it is to strict to demand a strict inequality as opposed to $\leq$. But now we have every thing we need to define a mathematical abstraction of distance !
 
@@ -88,7 +87,7 @@ To check if a function is a metric we have to check these three properties. Typi
 
 ### The euclidean metric is in fact a metric
 
-Setting: $x,y,z\in\mathbb{R}^2$, $\vert \cdot\vert_2$ is the euclidean distance
+Setting: $x,y,z\in\mathbb{R}^2$, $\vert x \vert_2=\sqrt{\sum_{k=1}^n (x_k)^2}$
 
 1. $d(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}=\sqrt{(-x_1+y_1)^2+(-x_2+y_2)^2}=d(y,x)$
 2. $d(x,y)=0 \iff (x_1-y_1)=0 \land (x_2-y_2)=0 \iff x=y$.
@@ -98,7 +97,7 @@ Setting: $x,y,z\in\mathbb{R}^2$, $\vert \cdot\vert_2$ is the euclidean distance
 
 Setting: $x,y,z\in X$, $\delta$ as defined above.
 
-1. $\delta(x,y)=\delta(y,x)$ definition (if you want to be pedantic you could show this by evaluating all the possible cases: $x=y,x\neq y$).
+1. $\delta(x,y)=\delta(y,x)$ definition (if you want to be pedantic you could show this by evaluating all the possible cases: $x=y,x\neq y$). You could also argue that $=$ is symmetric.
 2. $\delta(x,y)=0 \iff x=y$ is literally the definition.
 3. This is just a matter of evaluating the cases: $\{(x=y,y=z,y=z),(x=y,y\neq z,x\neq z),(x\neq y,y=z,x\neq z), (x\neq y,y\neq z,x= z),(x\neq y,y\neq z,x\neq z)\}$. Proof is left to the reader :)
 
@@ -132,6 +131,11 @@ Let's check our previous examples first. The first three examples are norms (not
 
 A euclidean vector space (vector space with **a** dot product<sup id="a1">[1](#f1)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
 
+## Further reading
+
+- [Paris metro metric](https://mathworld.wolfram.com/FrenchMetroMetric.html) or [alternatively](https://blogs.scientificamerican.com/roots-of-unity/a-few-of-my-favorite-spaces-the-sncf-metric/)
+- The second part of Distance is relative (once it's finished)
+
 ## Extra Proofs
 
 ### $\vert x+y\vert_2\leq\vert x\vert_2+\vert y\vert_2$
@@ -145,5 +149,9 @@ Then $\vert x+y\vert_2\leq\vert x\vert_2+\vert y\vert_2$ follows by taking the s
 $$\vert x+y\vert_2^2=\vert x\vert_2^2+2 \langle x,y\rangle +\vert y\vert_2^2\leq \vert x\vert_2^2+2\vert x\vert_2\vert y\vert_2 +\vert y\vert_2^2 = (\vert x\vert_2+\vert y\vert_2)^2.$$
 
 $\vert x\vert_2^2+2 \langle x,y\rangle +\vert y\vert_2^2\leq \vert x\vert_2^2+2\vert x\vert_2\vert y\vert_2 +\vert y\vert_2^2$ uses the following inequality : $\vert \langle x,y\rangle\vert_2^2\leq \vert x\vert_2\vert y\vert_2^2$.
+
+### taxicab triangle inequality:
+
+For $a,b,c\in\mathbb{R}^n$
 
 <b id="f1">1</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a1)
