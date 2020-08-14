@@ -152,6 +152,12 @@ $\vert x\vert_2^2+2 \langle x,y\rangle +\vert y\vert_2^2\leq \vert x\vert_2^2+2\
 
 ### taxicab triangle inequality:
 
-For $a,b,c\in\mathbb{R}^n$
+For $a,b,c\in\mathbb{R}$ :
+
+$$\vert a-c\vert = \vert a-b+b-c\vert\leq \vert a-b\vert +\vert b-c\vert$$
+
+For $a,b,c\in\mathbb{R}^n$ using the inequality above for each element of the sum:
+
+$$\sum_{k=0}^n\vert a_k-c_k\vert\leq \sum_{k=0}^n \left(\vert a_k-b_k\vert +\vert b_k-c_k\vert\right)=\sum_{k=0}^n\vert a_k-b_k\vert+\sum_{k=0}^n\vert b_k-c_k\vert$$
 
 <b id="f1">1</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a1)
