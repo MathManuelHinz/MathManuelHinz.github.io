@@ -83,7 +83,7 @@ Given a set $\xi$, a function $d_{\xi}: \xi \times \xi \to [0,\infty)$ is called
 
 Notice that every example above defines a metric !
 
-To check if a function is a metric we have to check these three properties. Typically the first two are quit easy to check, while the triangle-inequality might take some work. I will show how to prove that our usual definition is in fact a metric. The maximum- and the taxicab- metric can be proven in a similar fashion. 
+To check if a function is a metric we have to check these three properties. Typically the first two are quit easy to check, while the triangle-inequality might take some work. I will show how to prove that our usual definition is in fact a metric. The triangle inequalities are proven at the end of this post. 
 
 ### The euclidean metric is in fact a metric
 
@@ -99,7 +99,7 @@ Setting: $x,y,z\in X$, $\delta$ as defined above.
 
 1. $\delta(x,y)=\delta(y,x)$ definition (if you want to be pedantic you could show this by evaluating all the possible cases: $x=y,x\neq y$). You could also argue that $=$ is symmetric.
 2. $\delta(x,y)=0 \iff x=y$ is literally the definition.
-3. This is just a matter of evaluating the cases: $\{(x=y,y=z,y=z),(x=y,y\neq z,x\neq z),(x\neq y,y=z,x\neq z), (x\neq y,y\neq z,x= z),(x\neq y,y\neq z,x\neq z)\}$. Proof is left to the reader :)
+3. This is just a matter of evaluating all the possible cases (or using the transitivity of $=$ ).
 
 ## Norms
 
@@ -159,5 +159,39 @@ $$\vert a-c\vert = \vert a-b+b-c\vert\leq \vert a-b\vert +\vert b-c\vert$$
 For $a,b,c\in\mathbb{R}^n$ using the inequality above for each element of the sum:
 
 $$\sum_{k=0}^n\vert a_k-c_k\vert\leq \sum_{k=0}^n \left(\vert a_k-b_k\vert +\vert b_k-c_k\vert\right)=\sum_{k=0}^n\vert a_k-b_k\vert+\sum_{k=0}^n\vert b_k-c_k\vert$$
+
+### Maximum triangle inequality
+
+For $a,b,c\in\mathbb{R}^n$:
+
+$$d(a,c)=\max\{\vert a_k-c_k\vert  : 1\leq k \leq n\}$$
+
+Because of the triangle inequality (taxicab $n=1$) we can proof the following inequality:
+
+$$d(a,c)\leq \max\{\vert a_k-b_k\vert+\vert b_k-c_k\vert  : 1\leq k \leq n\}$$
+
+$$\leq \max\{\vert a_k-b_k\vert  : 1\leq k \leq n\}+\max\{\vert b_k-c_k\vert  : 1\leq k \leq n\}$$
+
+$$=d(a,b)+d(a,c).$$
+
+### Triangle inequality: $\delta$
+
+A priori there are $2^3$ possibilities, from which 5 are valid:
+
+- $x=y$
+  - $y=z$
+    - $x=z$: $d(x,z)=0\leq d(x,y)+d(y,z)=0+0=0$
+    - $x\neq z$ (Contradiction: Transitivity)
+  - $y\neq z$
+    - $x=z$ (Contradiction: Transitivity)
+    - $x\neq z$: $d(x,z)=1\leq d(x,y)+d(y,z)=0+1$
+- $x\neq y$
+  - $y=z$
+    - $x=z$ (Contradiction: Transitivity)
+    - $x\neq z$:  $d(x,z)=1\leq d(x,y)+d(y,z)=1+0$
+  - $y\neq z$
+    - $x=z$: $d(x,z)=0\leq d(x,y)+d(y,z)=1+1$ 
+    - $x\neq z$: $d(x,z)=1\leq d(x,y)+d(y,z)=1+1$
+
 
 <b id="f1">1</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a1)
