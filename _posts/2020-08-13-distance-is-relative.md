@@ -193,5 +193,8 @@ A priori there are $2^3$ possibilities, from which 5 are valid:
     - $x=z$: $d(x,z)=0\leq d(x,y)+d(y,z)=1+1$ 
     - $x\neq z$: $d(x,z)=1\leq d(x,y)+d(y,z)=1+1$
 
+### Triangle inequality: Levenshtein (Intuition)
+
+If you accept that the Levenshtein distance describes the minimal number of insertions,deletions and substitutions needed to go from one string to another, we can simply consider three strings $a,b,c\in\Omega^n$. If we have two sequences of such changes $\rho,\mu$, which transform $a$ to $b$ and $b$ to $c$ respectively, we can be sure that $\mu\circ\rho$ transforms $a$ to $c$. Therefore $d(a,c)$ is bounded by $d(a,b)+d(a,c)$. But it does not have to be equal, as the levenshtein distance is the minimum length of such a sequence of operations. 
 
 <b id="f1">1</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a1)
