@@ -6,7 +6,7 @@ Most people could probably calculate the distance between two points and even mo
 
 ### Euclidean distance: $\mathbb{R}^n$
 
-Let's begin with the most familiar example: what is the the distance between two points in 2 dimensions $\left(\mathbb{R}^2\right)$. Lets call the points $X=(x_1, x_2)$ and $Y=(y_1,y_2)$. Pythagoras tells us, that the length of the hypotenuse (and thereby the distance) equals $d(X,Y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}$. 
+Let's begin with the most familiar example: what is the the distance between two points in 2 dimensions $\left(\mathbb{R}^2\right)$. Let's call the points $X=(x_1, x_2)$ and $Y=(y_1,y_2)$. Pythagoras tells us, that the length of the hypotenuse (and thereby the distance) equals $d(X,Y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}$. 
 
 ![Distance between two points](/images/Abstand1.png)
 
@@ -18,11 +18,11 @@ But how does this generalize to $\mathbb{R}^n$ ? While before we had 2 dimension
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^n (x_k-y_k)^2}.$$
 
-Nice ! We found a way to characterize the distance between two points in $\mathbb{R}^n$. Is $\tilde{d}(X,Y)=2d(X,Y)$ a valid interpretation of distance ?
+Nice ! We found a way to characterize the distance between two points in $\mathbb{R}^n$. Is $\tilde{d}(X,Y)=2d(X,Y)$ a valid interpretation of distance?<sup id="a1">[1](#f1)</sup>
 
 ### Taxicab: $\mathbb{R}^n$ 
 
-Let's say you have never seen a formal definition of distance and you have never heard of pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry (Why does this definition fail your intuitions ?) you need to take the absolute value of each difference.  
+Let's say you have never seen a formal definition of distance and you have never heard of Pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry (Why does this definition fail your intuitions?)  you need to take the absolute value of each difference.  
 
 $$d(X,Y)=\sum_{k=1}^n \vert x_k-y_k\vert$$
 
@@ -32,7 +32,7 @@ Let's think about the following function:
 
 $$d(X,Y)=\max\{\vert x_k-y_k\vert  : 1\leq k \leq n\}$$
 
-This function takes two points in space ($\mathbb{R}^n$) and returns the maximum absolute difference in one of the coordinates. What is $d((1,0.5),(1,1))$, what is $d((0.8,0.5), (1,1))$ ? Does this function satisfy your intuition ? 
+This function takes two points in space ($\mathbb{R}^n$) and returns the maximum absolute difference in one of the coordinates. What is $d((1,0.5),(1,1))$, what is $d((0.8,0.5), (1,1))$ ? Does this function satisfy your intuition? 
 
 ### Does this describe some sort of distance ? 
 
@@ -60,8 +60,8 @@ $$\text{lev}_{a,b}(i,j)=\begin{cases}
 
 We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(\vert a\vert,\vert b\vert)$. I think it is a lot harder to judge the quality of this definition. The intuition behind the levenshtein distance is the following: Each case (2nd. and 3rd. case are the same, but for symmetry) represents one transformation of one of the strings
 
-1. Insertion
-2. Deletion
+1. Deletion
+2. Insertion
 3. Substitution
 
 While the initial idea of distance between two strings seems logical, this definition is quite convoluted. So let's think about properties any function describing distance should satisfy to have a consistent way to talk about distances.  
@@ -70,7 +70,7 @@ While the initial idea of distance between two strings seems logical, this defin
 
 Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should be the output ? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right ? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us ? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. If I would ask: "What does this tell us about $d(X,Z)$ ?" Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right ? After all the shortest distance between two points should be a straight line, shouldn't it ? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
 $$d(X,Y)+d(Y,Z)=1+1=d(X,Z).$$
-Therefore $d(X,Z)\leq d(X,Y)+d(Y,Z)$ i.e. it is to strict to demand a strict inequality as opposed to $\leq$. But now we have every thing we need to define a mathematical abstraction of distance !
+Therefore $d(X,Z)\leq d(X,Y)+d(Y,Z)$ i.e. it is to strict to demand a strict inequality as opposed to $\leq$. But now we have every thing we need to define a mathematical abstraction of distance!
 
 ### Definition
 
@@ -97,7 +97,7 @@ Setting: $x,y,z\in\mathbb{R}^2$, $\vert x \vert_2=\sqrt{\sum_{k=1}^n (x_k)^2}$
 
 Setting: $x,y,z\in X$, $\delta$ as defined above.
 
-1. $\delta(x,y)=\delta(y,x)$ definition (if you want to be pedantic you could show this by evaluating all the possible cases: $x=y,x\neq y$). You could also argue that $=$ is symmetric.
+1. $\delta(x,y)=\delta(y,x)$ by definition (if you want to be pedantic you could show this by evaluating all the possible cases: $x=y,x\neq y$). You could also argue that $=$ is symmetric.
 2. $\delta(x,y)=0 \iff x=y$ is literally the definition.
 3. This is just a matter of evaluating all the possible cases (or using the transitivity of $=$ ).
 
@@ -125,11 +125,11 @@ We can therefore think of normed vector spaces as a special case of metric space
 
 ### Which metrics are induced by norms ?
 
-Let's check our previous examples first. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we do operate on a vector space, but $\delta(\mathbb{R}^2)=\{0,1\}$ therefore we can only satisfy the first property of a norm for $\lambda \in \{0,1\}$. We can conclude that only the first three norms induce a metric.
+Let's check our previous examples first. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we do operate on a vector space, but $\delta(\mathbb{R}^2)=${$0,1$} therefore we can only satisfy the first property of a norm for $\lambda \in$ {$0,1$}. We can conclude that only the first three norms induce a metric.
 
 ### Connection to dot products.
 
-A euclidean vector space (vector space with **a** dot product<sup id="a1">[1](#f1)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
+A euclidean vector space (vector space with **a** dot product<sup id="a2">[2](#f2)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
 
 ## Further reading
 
@@ -197,4 +197,22 @@ A priori there are $2^3$ possibilities, from which 5 are valid:
 
 If you accept that the Levenshtein distance describes the minimal number of insertions,deletions and substitutions needed to go from one string to another, we can simply consider three strings $a,b,c\in\Omega^n$. If we have two sequences of such changes $\rho,\mu$, which transform $a$ to $b$ and $b$ to $c$ respectively, we can be sure that $\mu\circ\rho$ transforms $a$ to $c$. Therefore $d(a,c)$ is bounded by $d(a,b)+d(a,c)$. But it does not have to be equal, as the levenshtein distance is the minimum length of such a sequence of operations. 
 
-<b id="f1">1</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a1)
+### The euclidean metric is induced by a norm
+
+The other three norms induced by metrics are proven in the exact same way. Because we already know that the euclidean metric is in fact a metric, we only have to check the first property:
+
+$$\forall_{\lambda\in \mathbb{R}, x\in V}: f(\lambda x)=\vert \lambda\vert f(x).$$
+
+For any $\lambda \in \mathbb{R},x\in\mathbb{R}$:
+
+$$f(\lambda x)=\sqrt{\sum_{k=1}^n (\lambda x_k)^2}=\sqrt{\lambda^2\sum_{k=1}^n x_k^2}=|\lambda|\sqrt{\sum_{k=1}^n x_k^2}=|\lambda|f(x).$$
+
+Think about what is missing for a formal proof<sup id="a3">[3](#f3)</sup>.
+
+<b id="f1">1</b> Yes.
+[↩](#a1)
+
+<b id="f2">2</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a2)
+
+<b id="f3">1</b> $f(x-y)=d(x,y)$. Reread the proof of the triangle inequality.
+[↩](#a3)
