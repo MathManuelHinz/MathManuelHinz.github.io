@@ -140,7 +140,7 @@ A euclidean vector space (vector space with **a** dot product<sup id="a2">[2](#f
 
 ### $\vert x+y\vert_2\leq\vert x\vert_2+\vert y\vert_2$
 
-Proof (think about the details !)
+Proof (think about the details and notice how we are proving properties of the norm which induces the euclidean metric!):
 
 Setting: $x,y\in\mathbb{R}^n$, $\langle x,y\rangle$ is the dot product of two vectors. 
 
@@ -207,12 +207,10 @@ For any $\lambda \in \mathbb{R},x\in\mathbb{R}$:
 
 $$f(\lambda x)=\sqrt{\sum_{k=1}^n (\lambda x_k)^2}=\sqrt{\lambda^2\sum_{k=1}^n x_k^2}=|\lambda|\sqrt{\sum_{k=1}^n x_k^2}=|\lambda|f(x).$$
 
-Think about what is missing for a formal proof<sup id="a3">[3](#f3)</sup>.
+Think about what is missing for a formal proof.
 
 <b id="f1">1</b> Yes.
 [↩](#a1)
 
 <b id="f2">2</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a2)
 
-<b id="f3">3</b> $f(x-y)=d(x,y)$. Reread the proof of the triangle inequality.
-[↩](#a3)
