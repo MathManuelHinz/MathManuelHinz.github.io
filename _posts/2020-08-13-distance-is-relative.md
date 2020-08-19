@@ -197,6 +197,22 @@ A priori there are $2^3$ possibilities, from which 5 are valid:
 
 If you accept that the Levenshtein distance describes the minimal number of insertions,deletions and substitutions needed to go from one string to another, we can simply consider three strings $a,b,c\in\Omega^n$. If we have two sequences of such changes $\rho,\mu$, which transform $a$ to $b$ and $b$ to $c$ respectively, we can be sure that $\mu\circ\rho$ transforms $a$ to $c$. Therefore $d(a,c)$ is bounded by $d(a,b)+d(a,c)$. But it does not have to be equal, as the levenshtein distance is the minimum length of such a sequence of operations. 
 
+### Norms induce metrics
+
+If $(V,f)$ is a normed vector space, $(V,(x,y\mapsto f(x-y)))$ is a metric space.
+
+We have to show:
+1. $\forall_{x,y\in V}: d(x,y)=d(y,x)$ (symmetry).
+2. $\forall_{x,y\in V}: d(x,y)=0\iff x=y$
+3. $\forall_{x,y,z\in V}: d(x,z)\leq d(x,y)+d(y,z)$ (triangle-inequality)
+
+Proof:
+
+1. $(x-y)=-1(y-x)$ implies (first property of norms) $f(x,y)=\vert-1\vert f(y,x)=f(y,x)$.
+2. $x=y \iff x-y=0$ and the second property of norms $\implies$ the second property of metrics.
+3. Apply the triangle inequality for norms for $\tilde{x}=x-y$ and $\tilde{z}=y-z$: $d(x,z)=f(x-y+y+-z)\leq f(x-y)+f(y-z)=d(x,y)+d(y,z)$.
+
+
 ### The euclidean metric is induced by a norm
 
 The other three norms induced by metrics are proven in the exact same way. Because we already know that the euclidean metric is in fact a metric, we only have to check the first property:
