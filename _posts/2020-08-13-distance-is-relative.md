@@ -214,5 +214,5 @@ Think about what is missing for a formal proof<sup id="a3">[3](#f3)</sup>.
 
 <b id="f2">2</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a2)
 
-<b id="f3">1</b> $f(x-y)=d(x,y)$. Reread the proof of the triangle inequality.
+<b id="f3">3</b> $f(x-y)=d(x,y)$. Reread the proof of the triangle inequality.
 [↩](#a3)
