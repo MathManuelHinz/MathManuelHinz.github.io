@@ -43,7 +43,7 @@ $$\delta:X\times X \to \{0,1\}, \delta(x,y)=\begin{cases}
     1&\text{ otherwise}\\
 \end{cases}$$
 
-This seems weird right ? The distance between two points is either 0 or 1. There is no increase in distance if we pull our points farther away. But in some mathematical sense this does describe a distance!
+This seems weird right ? The distance between two points is either 0 or 1. There is no increase in distance if we pull our points farther away. Notice how we need no structure of X for this "distance"! There is no need to have any notion of addition or subtraction or any operation on our set X, but the test for equality! But in some mathematical sense this does describe a distance!
 
 ### Levenshtein distance
 
@@ -64,11 +64,11 @@ We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(\vert a\ve
 2. Insertion
 3. Substitution
 
-While the initial idea of distance between two strings seems logical, this definition is quite convoluted. So let's think about properties any function describing distance should satisfy to have a consistent way to talk about distances.  
+While the initial idea of distance between two strings seems logical<sup id="a2">[2](#f2)</sup>, this definition is quite convoluted. So let's think about properties any function describing distance should satisfy to have a consistent way to talk about distances.  
 
 ## Metrics
 
-Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should be the output ? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right ? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us ? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. If I would ask: "What does this tell us about $d(X,Z)$ ?" Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right ? After all the shortest distance between two points should be a straight line, shouldn't it ? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
+Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should be the output ? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right ? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us ? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. If I would ask: "What does this tell us about $d(X,Z)$ ?" Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right? After all the shortest distance between two points should be a straight line, shouldn't it? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
 $$d(X,Y)+d(Y,Z)=1+1=d(X,Z).$$
 Therefore $d(X,Z)\leq d(X,Y)+d(Y,Z)$ i.e. it is to strict to demand a strict inequality as opposed to $\leq$. But now we have every thing we need to define a mathematical abstraction of distance!
 
@@ -129,7 +129,7 @@ Let's check our previous examples first. The first three examples are norms (not
 
 ### Connection to dot products.
 
-A euclidean vector space (vector space with **a** dot product<sup id="a2">[2](#f2)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
+A euclidean vector space (vector space with **a** dot product<sup id="a3">[3](#f3)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
 
 ## Extra Proofs
 
@@ -222,13 +222,17 @@ Think about what is missing for a formal proof.
 
 ## Further reading
 
-- [Paris metro metric](https://mathworld.wolfram.com/FrenchMetroMetric.html) or [alternatively](https://blogs.scientificamerican.com/roots-of-unity/a-few-of-my-favorite-spaces-the-sncf-metric/)
-- The second part of Distance is relative (once it's finished)
+- Paris metro metric: [wolfram](https://mathworld.wolfram.com/FrenchMetroMetric.html) or alternatively [scientificamerican](https://blogs.scientificamerican.com/roots-of-unity/a-few-of-my-favorite-spaces-the-sncf-metric/).
+- The second part of Distance is relative (once it's finished).
 
 ## Footnotes
 
 <b id="f1">1</b> Yes.
 [↩](#a1)
 
-<b id="f2">2</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a2)
+<b id="f2">2</b> You need to have a serious discussion about which operations you allow. One might argue that substitution ist just a composition of deletion and insertion and that would be a perfectly valid argument.
+For example: [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
+[↩](#a2)
+
+<b id="f3">3</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a3)
 
