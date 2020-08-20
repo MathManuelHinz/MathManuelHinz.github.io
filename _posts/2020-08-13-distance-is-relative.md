@@ -131,11 +131,6 @@ Let's check our previous examples first. The first three examples are norms (not
 
 A euclidean vector space (vector space with **a** dot product<sup id="a2">[2](#f2)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
 
-## Further reading
-
-- [Paris metro metric](https://mathworld.wolfram.com/FrenchMetroMetric.html) or [alternatively](https://blogs.scientificamerican.com/roots-of-unity/a-few-of-my-favorite-spaces-the-sncf-metric/)
-- The second part of Distance is relative (once it's finished)
-
 ## Extra Proofs
 
 ### $\vert x+y\vert_2\leq\vert x\vert_2+\vert y\vert_2$
@@ -224,6 +219,13 @@ For any $\lambda \in \mathbb{R},x\in\mathbb{R}$:
 $$f(\lambda x)=\sqrt{\sum_{k=1}^n (\lambda x_k)^2}=\sqrt{\lambda^2\sum_{k=1}^n x_k^2}=|\lambda|\sqrt{\sum_{k=1}^n x_k^2}=|\lambda|f(x).$$
 
 Think about what is missing for a formal proof.
+
+## Further reading
+
+- [Paris metro metric](https://mathworld.wolfram.com/FrenchMetroMetric.html) or [alternatively](https://blogs.scientificamerican.com/roots-of-unity/a-few-of-my-favorite-spaces-the-sncf-metric/)
+- The second part of Distance is relative (once it's finished)
+
+## Footnotes
 
 <b id="f1">1</b> Yes.
 [↩](#a1)
