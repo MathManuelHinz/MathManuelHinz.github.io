@@ -230,8 +230,8 @@ Think about what is missing for a formal proof.
 <b id="f1">1</b> Yes.
 [↩](#a1)
 
-<b id="f2">2</b> You need to have a serious discussion about which operations you allow. One might argue that substitution ist just a composition of deletion and insertion and that would be a perfectly valid argument.
-For example: [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
+<b id="f2">2</b> You need to have a serious discussion about which operations you allow. One might argue that substitution ist just a composition of deletion and insertion. That would be a perfectly valid argument.
+Other metrics on strings (also called edit distances) : [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
 [↩](#a2)
 
 <b id="f3">3</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a3)
