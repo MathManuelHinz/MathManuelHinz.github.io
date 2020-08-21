@@ -14,7 +14,7 @@ We could also write that as $d:\mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}_{\
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^2 (x_k-y_k)^2}.$$
 
-But how does this generalize to $\mathbb{R}^n$ ? While before we had 2 dimensions while summing over two indicies ($k=1,k=2$) we will now sum over n. We will now change the definition of our distance function : $d:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}_{\geq 0}$  to be
+But how does this generalize to $\mathbb{R}^n$(n dimensions)? While before we had 2 dimensions while summing over two indicies ($k=1,k=2$) we will now sum over n. Generalization of the previous definition: $d:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}_{\geq 0}$
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^n (x_k-y_k)^2}.$$
 
@@ -47,7 +47,7 @@ This seems weird right ? The distance between two points is either 0 or 1. There
 
 ### Levenshtein distance
 
-While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow. With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vert b\vert$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
+While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow (including an "empty" character). With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vert b\vert$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
 
 $$\text{lev}_{a,b}(i,j)=\begin{cases}
     \max(i,j) & \text{ if} \min(i,j)=0\\
@@ -125,11 +125,11 @@ We can therefore think of normed vector spaces as a special case of metric space
 
 ### Which metrics are induced by norms ?
 
-Let's check our previous examples first. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we do operate on a vector space, $\delta(\mathbb{R}^2)=${$0,1$} therefore we have no hope to satisfy the first property. We can conclude that only the first three norms induce a metric.
+Let's check our previous examples first. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we do operate on a vector space, $\delta(\mathbb{R}^2)=${$0,1$} therefore we have no chance to satisfy the first property. We can conclude that only the first three norms induce a metric.
 
 ### Connection to dot products.
 
-A euclidean vector space (vector space with **a** dot product<sup id="a4">[4](#f4)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
+A euclidean vector space (vector space with **a** dot product<sup id="a4">[4](#f4)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $f(x)=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
 
 ## Extra Proofs
 
@@ -210,15 +210,13 @@ Proof:
 
 ### The euclidean metric is induced by a norm
 
-The other three norms induced by metrics are proven in the exact same way. Because we already know that the euclidean metric is in fact a metric, we only have to check the first property:
+The other three norms induced by metrics are proven in the exact same way. Because we already know that the euclidean metric is in fact a metric, we only have to check the first property (why?):
 
 $$\forall_{\lambda\in \mathbb{R}, x\in V}: f(\lambda x)=\vert \lambda\vert f(x).$$
 
 For any $\lambda \in \mathbb{R},x\in\mathbb{R}$:
 
 $$f(\lambda x)=\sqrt{\sum_{k=1}^n (\lambda x_k)^2}=\sqrt{\lambda^2\sum_{k=1}^n x_k^2}=|\lambda|\sqrt{\sum_{k=1}^n x_k^2}=|\lambda|f(x).$$
-
-Think about what is missing for a formal proof.
 
 ## Further reading
 
@@ -237,4 +235,4 @@ Think about what is missing for a formal proof.
 Other metrics on strings (also called edit distances): [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
 [↩](#a3)
 
-<b id="f4">4</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a4)
+<b id="f4">4</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive semidefinite sesquilinear form. [↩](#a4)
