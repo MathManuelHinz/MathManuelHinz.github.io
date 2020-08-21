@@ -1,6 +1,6 @@
 # Distance is relative: Introduction (WIP)
 
-Most people could probably calculate the distance between two points and even more have an intuition about how distance works. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science. While concepts from computer science will appear in this post, the focus lies on mathematical abstractions.
+Most people could probably calculate the distance between two points and even more have an intuition about how distance works. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science<sup id="a1">[1](#f1)</sup>.
 
 ## Examples
 
@@ -18,11 +18,11 @@ But how does this generalize to $\mathbb{R}^n$(n dimensions)? While before we ha
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^n (x_k-y_k)^2}.$$
 
-Nice ! We found a way to characterize the distance between two points in $\mathbb{R}^n$. Is $\tilde{d}(X,Y)=2d(X,Y)$ a valid interpretation of distance?<sup id="a1">[1](#f1)</sup>
+Nice ! We found a way to characterize the distance between two points in $\mathbb{R}^n$. Is $\tilde{d}(X,Y)=2d(X,Y)$ a valid interpretation of distance?<sup id="a2">[2](#f2)</sup>
 
 ### Taxicab: $\mathbb{R}^n$ 
 
-Let's say you have never seen a formal definition of distance and you have never heard of Pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry (Why does this definition fail your intuitions?)<sup id="a2">[2](#f2)</sup>  you need to take the absolute value of each difference.  
+Let's say you have never seen a formal definition of distance and you have never heard of Pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry (Why does this definition fail your intuitions?)<sup id="a3">[3](#f3)</sup>  you need to take the absolute value of each difference.  
 
 $$d(X,Y)=\sum_{k=1}^n \vert x_k-y_k\vert$$
 
@@ -64,7 +64,7 @@ We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(\vert a\ve
 2. Insertion
 3. Substitution
 
-While the initial idea of distance between two strings seems logical<sup id="a3">[3](#f3)</sup>, this definition is quite convoluted. So let's think about properties any function describing distance should satisfy to have a consistent way to talk about distances.  
+While the initial idea of distance between two strings seems logical<sup id="a4">[4](#f4)</sup>, this definition is quite convoluted. So let's think about properties any function describing distance should satisfy to have a consistent way to talk about distances.  
 
 ## Metrics
 
@@ -129,7 +129,7 @@ Let's check our previous examples first. The first three examples are norms (not
 
 ### Connection to dot products.
 
-A euclidean vector space (vector space with **a** dot product<sup id="a4">[4](#f4)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $f(x)=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
+A euclidean vector space (vector space with **a** dot product<sup id="a5">[5](#f5)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $f(x)=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
 
 ## Extra Proofs
 
@@ -210,7 +210,7 @@ Proof:
 
 ### The euclidean metric is induced by a norm
 
-The other three norms induced by metrics are proven in the exact same way. Because we already know that the euclidean metric is in fact a metric, we only have to check the first property (why?):
+The other three norms induced by metrics are proven in the exact same way. Because we already know that the euclidean metric is in fact a metric, we only have to check the first property(why?):
 
 $$\forall_{\lambda\in \mathbb{R}, x\in V}: f(\lambda x)=\vert \lambda\vert f(x).$$
 
@@ -225,14 +225,17 @@ $$f(\lambda x)=\sqrt{\sum_{k=1}^n (\lambda x_k)^2}=\sqrt{\lambda^2\sum_{k=1}^n x
 
 ## Footnotes
 
-<b id="f1">1</b> Yes. After reading this blog post you should be able to confirm that $\tilde{d}$ is both a norm and a metric.
+<b id="f1">1</b> Although there is a strong focus on mathematics. I will use edit distances (mainly Levenshtein) as an example, which does not stem from mathematics. 
 [↩](#a1)
 
-<b id="f2">2</b> Consider the points $(0,1),(-1,0)$ and their distance.
+<b id="f2">2</b> Yes. After reading this blog post you should be able to confirm that $\tilde{d}$ is both a norm and a metric.
 [↩](#a2)
 
-<b id="f3">3</b> You need to have a serious discussion about which operations you allow. One might argue that substitution is just a composition of deletion and insertion. That would be a perfectly valid argument.
-Other metrics on strings (also called edit distances): [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
+<b id="f3">3</b> Consider the points $(0,1),(-1,0)$ and their distance.
 [↩](#a3)
 
-<b id="f4">4</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive semidefinite sesquilinear form. [↩](#a4)
+<b id="f4">4</b> You need to have a serious discussion about which operations you allow. One might argue that substitution is just a composition of deletion and insertion. That would be a perfectly valid argument.
+Other metrics on strings (also called edit distances): [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
+[↩](#a4)
+
+<b id="f5">5</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive semidefinite sesquilinear form. [↩](#a5)
