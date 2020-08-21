@@ -1,6 +1,6 @@
 # Distance is relative: Introduction (WIP)
 
-Most people could probably calculate the distance between two points and even more have an intuition about how distance works. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science.
+Most people could probably calculate the distance between two points and even more have an intuition about how distance works. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science. While concepts from computer science will appear in this post, the focus lies on mathematical abstractions.
 
 ## Examples
 
@@ -22,7 +22,7 @@ Nice ! We found a way to characterize the distance between two points in $\mathb
 
 ### Taxicab: $\mathbb{R}^n$ 
 
-Let's say you have never seen a formal definition of distance and you have never heard of Pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry (Why does this definition fail your intuitions?)  you need to take the absolute value of each difference.  
+Let's say you have never seen a formal definition of distance and you have never heard of Pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry (Why does this definition fail your intuitions?)<sup id="a2">[2](#f2)</sup>  you need to take the absolute value of each difference.  
 
 $$d(X,Y)=\sum_{k=1}^n \vert x_k-y_k\vert$$
 
@@ -64,7 +64,7 @@ We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(\vert a\ve
 2. Insertion
 3. Substitution
 
-While the initial idea of distance between two strings seems logical<sup id="a2">[2](#f2)</sup>, this definition is quite convoluted. So let's think about properties any function describing distance should satisfy to have a consistent way to talk about distances.  
+While the initial idea of distance between two strings seems logical<sup id="a3">[3](#f3)</sup>, this definition is quite convoluted. So let's think about properties any function describing distance should satisfy to have a consistent way to talk about distances.  
 
 ## Metrics
 
@@ -97,7 +97,7 @@ Setting: $x,y,z\in\mathbb{R}^2$, $\vert x \vert_2=\sqrt{\sum_{k=1}^n (x_k)^2}$
 
 Setting: $x,y,z\in X$, $\delta$ as defined above.
 
-1. $\delta(x,y)=\delta(y,x)$ by definition (if you want to be pedantic you could show this by evaluating all the possible cases: $x=y,x\neq y$). You could also argue that $=$ is symmetric.
+1. $\delta(x,y)=\delta(y,x)$ by definition (if you want to be pedantic you could show this by evaluating all possible cases: $x=y,x\neq y$). You could also argue that $=$ is symmetric.
 2. $\delta(x,y)=0 \iff x=y$ is literally the definition.
 3. This is just a matter of evaluating all the possible cases (or using the transitivity of $=$ ).
 
@@ -125,11 +125,11 @@ We can therefore think of normed vector spaces as a special case of metric space
 
 ### Which metrics are induced by norms ?
 
-Let's check our previous examples first. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we do operate on a vector space, but $\delta(\mathbb{R}^2)=${$0,1$} therefore we can only satisfy the first property of a norm for $\lambda \in$ {$0,1$}. We can conclude that only the first three norms induce a metric.
+Let's check our previous examples first. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we do operate on a vector space, $\delta(\mathbb{R}^2)=${$0,1$} therefore we have no hope to satisfy the first property. We can conclude that only the first three norms induce a metric.
 
 ### Connection to dot products.
 
-A euclidean vector space (vector space with **a** dot product<sup id="a3">[3](#f3)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
+A euclidean vector space (vector space with **a** dot product<sup id="a4">[4](#f4)</sup> over the field $\mathbb{R}$) $(V,\langle\cdot\rangle)$ can be interpreted as a normed vector space: For $x\in V$ choose $\vert x\vert=\sqrt{\langle x, x\rangle}$ and you have got yourself a normed vector space.
 
 ## Extra Proofs
 
@@ -227,12 +227,14 @@ Think about what is missing for a formal proof.
 
 ## Footnotes
 
-<b id="f1">1</b> Yes.
+<b id="f1">1</b> Yes. After reading this blog post you should be able to confirm that $\tilde{d}$ is both a norm and a metric.
 [↩](#a1)
 
-<b id="f2">2</b> You need to have a serious discussion about which operations you allow. One might argue that substitution ist just a composition of deletion and insertion. That would be a perfectly valid argument.
-Other metrics on strings (also called edit distances) : [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
+<b id="f2">2</b> Consider the points $(0,1),(-1,0)$ and their distance.
 [↩](#a2)
 
-<b id="f3">3</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a3)
+<b id="f3">3</b> You need to have a serious discussion about which operations you allow. One might argue that substitution is just a composition of deletion and insertion. That would be a perfectly valid argument.
+Other metrics on strings (also called edit distances): [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) or the edit distance based on [LCS](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Relation_to_other_problems).
+[↩](#a3)
 
+<b id="f4">4</b> I.e. a symmetric positive semidefinite bilinear form (In case of a  $\mathbb{R}$ vector space) or a hermitian positive definite sesquilinear form. [↩](#a4)
