@@ -19,7 +19,7 @@ Mathematically we could write foldl: $(a\times a\to a)\times a\times a^n\to a$ f
 
 ### Definition
 
-For some $\varphi:(a\times a\to a)$ I call $(\varphi,0_{\varphi},a)$ a proper folding if: 
+For some $\varphi:(a\times a\to a)$ I call $(a,\varphi)$ a proper folding if: 
 
 1. $$\varphi_{\pi}(b,a)=\varphi(a,b)$$
 2. $$\exists_{0_{\varphi}\in a}\forall_{k\in a}: \varphi(0_\varphi,k)=k$$
@@ -29,7 +29,7 @@ A proper folding is called perfect if $\varphi$ is symmetric.
 
 ### Claim
 
-I claim that $(a,\varphi)$ is a monoid if and only if $(\varphi,0_{\varphi},a)$ is a perfect folding.
+I claim that $(a,\varphi)$ is a monoid if and only if $(a,\varphi)$ is a perfect folding.
 
 ### Proof.
 
@@ -49,11 +49,11 @@ $$\stackrel{\text{asso.}}{=}\varphi(r_1,\dots\varphi(r_{n-2},\varphi(r_{n-1},r_n
 
 $$=\text{foldr}(\varphi,0_{\varphi},r).$$
 
-If $(\varphi,0_{\varphi},a)$ is a perfect folding, we can choose $0_{\varphi}$ to be our identity element:
+If $(a,\varphi)$ is a perfect folding, we can choose $0_{\varphi}$ to be our identity element:
 $$\forall_{k\in a}:\varphi(0_{\varphi},k)\stackrel{\text{perfect}}{=}\varphi(k,0_{\varphi})=k.$$
 
 For $k_1,k_2,k_3\in a$ let $k=(k_1,k_2,k_3)\in a^3$.
-$(\varphi,0_{\varphi},a)$ is a perfect folding, therefore 
+$(a,\varphi)$ is a perfect folding, therefore 
 
 $$\text{foldl}(\varphi,0_{\varphi},r)=\text{foldr}(\varphi,0_{\varphi},r)$$
 
@@ -64,7 +64,7 @@ $$\varphi(\varphi(0_{\varphi},k_1),\varphi(k_2,k_3))=\varphi(k_1,\varphi(k_2,k_3
 
 ### Further comments
 
-This equivalence does not hold for the weaker assumption "$(\varphi,0_{\varphi},a)$ is a proper folding". Consider the following counter example:
+This equivalence does not hold for the weaker assumption "$(a,\varphi)$ is a proper folding". Consider the following counter example:
 
 $\Omega=\{A,B,C\}$
 
@@ -77,4 +77,4 @@ B         | A | B | C |
 C         | A | A | A |
 
 
-$\varphi$ is associative (thereby foldl=foldr) has left identity B, but no right identity (check $\varphi(C,\_)$). Therefore $(\Omega, \varphi)$ is no monoid, but $(\varphi,B,\Omega)$ is a proper folding!
+$\varphi$ is associative (thereby foldl=foldr), has left identity B, but no right identity (check $\varphi(C,\_)$). Therefore $(\Omega, \varphi)$ is no monoid, but $(\varphi,B,\Omega)$ is a proper folding!
