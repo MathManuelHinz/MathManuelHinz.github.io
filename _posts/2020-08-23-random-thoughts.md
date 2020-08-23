@@ -22,7 +22,7 @@ Mathematically we could write foldl: $(a\times a\to a)\times a\times a^n\to a$ f
 For some $\varphi:(a\times a\to a)$ I call $(a,\varphi)$ a proper folding if: 
 
 1. $$\varphi_{\pi}(b,a)=\varphi(a,b)$$
-2. $\exists_{0_{\varphi}\in a}\forall_{k\in a}: \varphi(0_{\varphi},k)=k$
+2. $$\exists_{0_{\varphi}\in a}\forall_{k\in a}: \varphi(0_{\varphi},k)=k$$
 3. $$\forall_{r\in a^n}: \text{foldl}(\varphi,0_{\varphi},r)=\text{foldr}(\varphi_{\pi},0_{\varphi},r)$$
 
 A proper folding is called perfect if $\varphi$ is symmetric.
