@@ -49,7 +49,7 @@ $$\stackrel{\text{asso.}}{=}\varphi(r_1,\dots\varphi(r_{n-2},\varphi(r_{n-1},r_n
 
 $$=\text{foldr}(\varphi,0_{\varphi},r).$$
 
-If $(a,\varphi)$ is a perfect folding, we can choose $0_{\varphi}$ to be our identity element:
+If $(a,\varphi)$ is a perfect folding, we can choose ${0_{\varphi}}$ to be our identity element:
 $$\forall_{k\in a}:\varphi(0_{\varphi},k)\stackrel{\text{perfect}}{=}\varphi(k,0_{\varphi})=k.$$
 
 For $k_1,k_2,k_3\in a$ let $k=(k_1,k_2,k_3)\in a^3$.
