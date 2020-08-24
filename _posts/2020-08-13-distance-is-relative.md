@@ -10,11 +10,11 @@ Let's begin with the most familiar example: what is the the distance between two
 
 ![Distance between two points](/images/Abstand1.png)
 
-We could also write that as $d:\mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}_{\geq 0}$ 
+We could also write $d:\mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}_{\geq 0}$ 
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^2 (x_k-y_k)^2}.$$
 
-But how does this generalize to $\mathbb{R}^n$(n dimensions)? While before we had 2 dimensions while summing over two indicies ($k=1,k=2$) we will now sum over n. Generalization of the previous definition: $d:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}_{\geq 0}$
+But how does this generalize to $\mathbb{R}^n$(n dimensions)? Previously we had 2 dimensions while summing over two indicies ($k=1,k=2$) for n dimensions we will unsurprisingly sum over n. Generalization of the previous definition: $d:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}_{\geq 0}$
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^n (x_k-y_k)^2}.$$
 
@@ -43,11 +43,11 @@ $$\delta:X\times X \to \{0,1\}, \delta(x,y)=\begin{cases}
     1&\text{ otherwise}\\
 \end{cases}$$
 
-This seems weird right ? The distance between two points is either 0 or 1. There is no increase in distance if we pull our points farther away. Notice how we need no structure of X for this "distance"! There is no need to have any notion of addition or subtraction or any operation on our set X, but the test for equality! But in some mathematical sense this does describe a distance!
+This seems weird right ? The distance between two points is either 0 or 1. There is no increase in distance if we pull our points farther away. Notice how we need no structure on X for this "distance"! There is no need to have any notion of addition or subtraction or any operation on our set X, but the test for equality! But in some mathematical sense this does describe a distance!
 
 ### Levenshtein distance
 
-While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow (including an "empty" character). With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vert b\vert$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
+While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow (possibly including an "empty" character). With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vert b\vert$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
 
 $$\text{lev}_{a,b}(i,j)=\begin{cases}
     \max(i,j) & \text{ if} \min(i,j)=0\\
@@ -110,8 +110,8 @@ Let's talk about a concept closely related to distance: length. If we think abou
 For a $\mathbb{R}$-[vector space](https://en.wikipedia.org/wiki/Vector_space) V a function $f:V\to [0,\infty)$ is called a norm if 
 
 1. $\forall_{\lambda\in \mathbb{R}, x\in V}: f(\lambda x)=\vert \lambda\vert f(x).$
-2. $\forall_{x,y\in V}: f(x+y)\leq f(x)+f(y)$
-3. $\forall_{x\in V}: f(x)=0\iff x=0$
+2. $\forall_{x\in V}: f(x)=0\iff x=0$
+3. $\forall_{x,y\in V}: f(x+y)\leq f(x)+f(y)$
 
 This is not the most abstract definition we could use (read: $\mathbb{R}$-vector space for example), but it is a very intuitive definition.
 
