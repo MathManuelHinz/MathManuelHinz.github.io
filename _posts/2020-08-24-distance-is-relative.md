@@ -1,4 +1,4 @@
-# Distance is relative: Introduction (WIP)
+# Distance is relative: Introduction
 
 Most people could probably calculate the distance between two points and even more have an intuition about how distance works. But what is the distance between two strings ? Can we choose another meaningful way to talk about the distance between points ? What exactly characterizes the idea of "distance" ? While those topics are often discussed in introductory college / university courses, I want to give a collection of the different concepts, as they appear in both mathematics and computer science<sup id="a1">[1](#f1)</sup>.
 
@@ -14,7 +14,7 @@ We could also write $d:\mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}_{\geq 0}$
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^2 (x_k-y_k)^2}.$$
 
-But how does this generalize to $\mathbb{R}^n$(n dimensions)? Previously we had 2 dimensions while summing over two indicies ($k=1,k=2$) for n dimensions we will unsurprisingly sum over n. Generalization of the previous definition: $d:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}_{\geq 0}$
+But how does this generalize to $\mathbb{R}^n$(n dimensions)? Previously we had 2 dimensions while summing over two indicies ($k=1,k=2$), for n dimensions we will unsurprisingly sum over n. Generalization of the previous definition: $d:\mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}_{\geq 0}$
 
 $$d(X,Y)=\sqrt{\sum_{k=1}^n (x_k-y_k)^2}.$$
 
@@ -22,7 +22,7 @@ Nice ! We found a way to characterize the distance between two points in $\mathb
 
 ### Taxicab: $\mathbb{R}^n$ 
 
-Let's say you have never seen a formal definition of distance and you have never heard of Pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry (Why does this definition fail your intuitions?)<sup id="a3">[3](#f3)</sup>  you need to take the absolute value of each difference.  
+Let's say you have never seen a formal definition of distance and you have never heard of Pythagoras' theorem. How would you define a formula for the distance between two points ? A first guess could be to just add the difference of each coordinate, but to avoid weird geometry<sup id="a3">[3](#f3)</sup>  you need to take the absolute value of each difference.  
 
 $$d(X,Y)=\sum_{k=1}^n \vert x_k-y_k\vert$$
 
@@ -47,7 +47,10 @@ This seems weird right ? The distance between two points is either 0 or 1. There
 
 ### Levenshtein distance
 
-While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. Let $\Omega$ be the set of characters we allow (possibly including an "empty" character). With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vert b\vert$ non-empty characters respectively. We will define the Levenshtein distance in a recursive manner:
+While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. 
+**_Example:_**
+![Distance between two points](/images/leven.png "Example") 
+Let $\Omega$ be the set of characters we allow (possibly including an "empty" character). With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vert b\vert$ non-empty characters respectively. We will define the Levenshtein distance using a recursive helper function:
 
 $$\text{lev}_{a,b}(i,j)=\begin{cases}
     \max(i,j) & \text{ if} \min(i,j)=0\\
@@ -68,7 +71,7 @@ While the initial idea of distance between two strings seems logical<sup id="a4"
 
 ## Metrics
 
-Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should be the output ? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right ? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us ? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. If I would ask: "What does this tell us about $d(X,Z)$ ?" Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right? After all the shortest distance between two points should be a straight line, shouldn't it? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
+Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should the output be? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us about $d(X,Z)$? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right? After all the distance between two points should be minimal in the sense that you can't fight a path (think collection of points, where the first and the last point are X,Z respectively) which has a shorter distance, shouldn't it? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
 $$d(X,Y)+d(Y,Z)=1+1=d(X,Z).$$
 Therefore $d(X,Z)\leq d(X,Y)+d(Y,Z)$ i.e. it is to strict to demand a strict inequality as opposed to $\leq$. But now we have every thing we need to define a mathematical abstraction of distance!
 
@@ -83,9 +86,9 @@ Given a set $\xi$, a function $d_{\xi}: \xi \times \xi \to [0,\infty)$ is called
 
 Notice that every example above defines a metric !
 
-To check if a function is a metric we have to check these three properties. Typically the first two are quit easy to check, while the triangle-inequality might take some work. I will show how to prove that our usual definition is in fact a metric. The triangle inequalities are proven at the end of this post. 
+To check if a function is a metric we have to check these three properties. Typically the first two are quit easy to check, while the triangle-inequality might take some work. I will show how to prove that our usual definition and $\delta$ are metrics. The triangle inequalities are proven at the end of this post. 
 
-### The euclidean metric is in fact a metric
+### The euclidean metric is a metric
 
 Setting: $x,y,z\in\mathbb{R}^2$, $\vert x \vert_2=\sqrt{\sum_{k=1}^n (x_k)^2}$
 
@@ -103,7 +106,7 @@ Setting: $x,y,z\in X$, $\delta$ as defined above.
 
 ## Norms
 
-Let's talk about a concept closely related to distance: length. If we think about two points $\in \mathbb{R}^n$ surely the distance in the euclidean metric is the same as the length of the vector, which translates one of the points onto the other. Maybe we can find a way to mimic this relationship if we move from distance to some metric ?
+Let's talk about a concept closely related to distance: length. If we think about two points $\in \mathbb{R}^n$ surely the distance in the euclidean metric is the same as the length of the vector, which translates one of the points onto the other. Maybe we can find a way to mimic this relationship if we replace "distance" with "metric" ?
 
 ### Definition
 
@@ -125,7 +128,7 @@ We can therefore think of normed vector spaces as a special case of metric space
 
 ### Which metrics are induced by norms ?
 
-Let's check our previous examples first. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we do operate on a vector space, $\delta(\mathbb{R}^2)=${$0,1$} therefore we have no chance to satisfy the first property. We can conclude that only the first three norms induce a metric.
+Let's check our previous examples. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we might operate on a vector space, $\delta(X^2)=${$0,1$} therefore we have no chance to satisfy the first property. We can conclude that only the first three norms induce a metric.
 
 ### Connection to dot products.
 
