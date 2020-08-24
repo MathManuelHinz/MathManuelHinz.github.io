@@ -61,7 +61,7 @@ $$\text{lev}_{a,b}(i,j)=\begin{cases}
     \end{cases} & \text{otherwise}
 \end{cases}$$
 
-We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(\vert a\vert,\vert b\vert)$. I think it is a lot harder to judge the quality of this definition. The intuition behind the levenshtein distance is the following: Each case (2nd. and 3rd. case are the same, but for symmetry) represents one transformation of one of the strings
+We will now define the distance of a and b : $d(a,b)=\text{lev}_{a,b}(\vert a\vert,\vert b\vert)$. I think it is a lot harder to judge the quality of this definition. The intuition behind the Levenshtein distance is the following: Each case (2nd. and 3rd. case are the same, but for symmetry) represents one transformation of one of the strings
 
 1. Deletion
 2. Insertion
@@ -71,7 +71,7 @@ While the initial idea of distance between two strings seems logical<sup id="a4"
 
 ## Metrics
 
-Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should the output be? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us about $d(X,Z)$? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right? After all the distance between two points should be minimal in the sense that you can't fight a path (think collection of points, where the first and the last point are X,Z respectively) which has a shorter distance, shouldn't it? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
+Given a set $\xi$ we want to find a function $d:\xi\times\xi \to$ ? What should the output be? Let's choose $\mathbb{R}$ for now (this is not the most abstraction we can get, but a useful example). I would hope most of us would agree that a distance should always be $\geq 0$. It would also be great if the distance between $X$ and $Y$ is the same as the distance between $Y$ and $X$ right? Another property, which should be perfectly fitting to your intuition, is that the distance between two points is 0 if and only if they are the same point. Well we are close to a useful definition, but there is one rule our new distance needs to satisfy for it to match our intuition. Let's consider three points $X,Y,Z\in\mathbb{R}^n$. What do the values of $d(X,Y)$ and $d(Y,Z)$ tell us about $d(X,Z)$? Well these two numbers should represent the distance from $X$ to $Y$ and from $Y$ to $Z$. Most would probably argue that the distance should be less than $d(X,Y)+d(Y,Z)$ right? After all the distance between two points should be minimal in the sense that you can't find a path (think collection of points, where the first and the last point are X,Z respectively) which has a shorter distance, shouldn't it? Well if we consider $X=(0,0),Y=(1,0),Z=(2,0)$ we get (using our normal definition of distance)
 $$d(X,Y)+d(Y,Z)=1+1=d(X,Z).$$
 Therefore $d(X,Z)\leq d(X,Y)+d(Y,Z)$ i.e. it is to strict to demand a strict inequality as opposed to $\leq$. But now we have every thing we need to define a mathematical abstraction of distance!
 
@@ -128,7 +128,7 @@ We can therefore think of normed vector spaces as a special case of metric space
 
 ### Which metrics are induced by norms ?
 
-Let's check our previous examples. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we might operate on a vector space, $\delta(X^2)=${$0,1$} therefore we have no chance to satisfy the first property. We can conclude that only the first three norms induce a metric.
+Let's check our previous examples. The first three examples are norms (notice how $\mathbb{R}^n$ is a $\mathbb{R}$-vector space). Given that we already know that they are metrics, we only have to check the first property, which should be quite easy. But what about the last two examples ? Well as for the Levenshtein example, we don't even have the vector space structure, so there is little hope for us here :( How about the last example ? Well while we might operate on a vector space, $\delta(X^2)=${$0,1$} therefore we have no chance to satisfy the first property. We can conclude that only the first three norms induce a metric.
 
 ### Connection to dot products.
 
@@ -193,7 +193,7 @@ A priori there are $2^3$ possibilities, from which 5 are valid:
 
 ### Triangle inequality: Levenshtein (Intuition)
 
-If you accept that the Levenshtein distance describes the minimal number of insertions,deletions and substitutions needed to go from one string to another, we can simply consider three strings $a,b,c\in\Omega^n$. If we have two sequences of such changes $\rho,\mu$, which transform $a$ to $b$ and $b$ to $c$ respectively, we can be sure that $\mu\circ\rho$ transforms $a$ to $c$. Therefore $d(a,c)$ is bounded by $d(a,b)+d(a,c)$. But it does not have to be equal, as the levenshtein distance is the minimum length of such a sequence of operations. 
+If you accept that the Levenshtein distance describes the minimal number of insertions,deletions and substitutions needed to go from one string to another, we can simply consider three strings $a,b,c\in\Omega^n$. If we have two sequences of such changes $\rho,\mu$, which transform $a$ to $b$ and $b$ to $c$ respectively, we can be sure that $\mu\circ\rho$ transforms $a$ to $c$. Therefore $d(a,c)$ is bounded by $d(a,b)+d(a,c)$. But it does not have to be equal, as the Levenshtein distance is the minimum length of such a sequence of operations. 
 
 ### Norms induce metrics
 
