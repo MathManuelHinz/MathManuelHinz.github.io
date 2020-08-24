@@ -8,7 +8,7 @@ Most people could probably calculate the distance between two points and even mo
 
 Let's begin with the most familiar example: what is the the distance between two points in 2 dimensions $\left(\mathbb{R}^2\right)$. Let's call the points $X=(x_1, x_2)$ and $Y=(y_1,y_2)$. Pythagoras tells us, that the length of the hypotenuse (and thereby the distance) equals $d(X,Y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}$. 
 
-![Distance between two points](/images/Abstand1.png)
+![Distance between two points](/images/Abstand1.png "Right triangle implicitly declared by two distinct points (unequal to the origin)")
 
 We could also write $d:\mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}_{\geq 0}$ 
 
@@ -49,7 +49,7 @@ This seems weird right ? The distance between two points is either 0 or 1. There
 
 While all of the previous examples measured "the" distance between two points in space, we will now consider the distance between two words (strings in particular). One way to think of the distance of two strings is to consider how we must change one of them to get the other. Then we can assign a "penalty" for each change we do and if we are lucky we get a good definition of distance. 
 **_Example:_**
-![Distance between two points](/images/leven.png "Example") 
+![Distance between two points](/images/leven.png "Changing TRFT to TEST") 
 Let $\Omega$ be the set of characters we allow (possibly including an "empty" character). With a penalty of 1 and some luck we will find the Levenshtein distance. $\text{d} : \Omega^n \times \Omega^n \to \mathbb{N}$. Let's compare two strings composed of (up to) n characters $a,b\in \Omega^n$ with $\vert a\vert,\vert b\vert$ non-empty characters respectively. We will define the Levenshtein distance using a recursive helper function:
 
 $$\text{lev}_{a,b}(i,j)=\begin{cases}
