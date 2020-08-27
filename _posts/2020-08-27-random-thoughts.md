@@ -49,7 +49,7 @@ Notation: For $r=[r_1,\dots,r_n]$ let $r_{k:}:=[r_k,\dots,r_n]$
 - f#: fold
 - C++: std:accumulate 
 
-## A small proof
+## A short proof
 
 ## Setting 
 
