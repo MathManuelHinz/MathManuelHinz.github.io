@@ -29,6 +29,7 @@ foldl :: (b -> a -> b) -> b -> [a] -> b
 ```
 For $x_0 \in b,n\in\mathbb{N},r\in a^n$
  and $f: b\times a\to b$:
+
 $$\text{foldl}(f,x_0,r)=\begin{cases}
 \text{foldl}(f,(f(x_0,r_1),r_{2:}) & \text{if } r=[r_1,\dots,r_n] \text{ where } n\geq 1, \\
 x_0 & \text{if } r=[]
@@ -47,7 +48,6 @@ Notation: For $r=[r_1,\dots,r_n]$ let $r_{k:}:=[r_k,\dots,r_n]$
 - python: functools.reduce, itertools.accumulate
 - f#: fold
 - C++: std:accumulate 
-$\hspace{40pt}\vdots$
 
 ## A small proof
 
@@ -89,7 +89,7 @@ hold. We can now choose  $0_\varphi:=0$. The second property follows by repeated
 
 $$\forall_{r\in a^n}:\text{foldl}(\varphi,0_{\varphi},r)=\varphi(\dots\varphi(\varphi(\varphi(0_\varphi, r_1),r_2),r_3),\dots),r_n)=\varphi(\dots\varphi(r_1,r_2),\dots),r_n)$$
 
-$$\stackrel{\text{asso.}}{=}\varphi(r_1,\dots\varphi(r_{n-2},\varphi(r_{n-1},r_n)))=\varphi(r_1,\dots\varphi(r_{n-2},\varphi(r_{n-1},\varphi(0_{\varphi},r_n))))$$
+$$\stackrel{\text{asso.}}{=}\varphi(r_1,\dots\varphi(r_{n-2},\varphi(r_{n-1},r_n)))=\varphi(r_1,\dots\varphi(r_{n-2},\varphi(r_{n-1},\varphi(r_n,0_{\varphi}))))$$
 
 $$=\text{foldr}(\varphi,0_{\varphi},r).$$ 
 
@@ -111,4 +111,4 @@ or equivalently
 
 $$\varphi(\varphi(0_{\varphi},k_1),\varphi(k_2,k_3))=\varphi(k_1,\varphi(k_2,k_3))=\varphi(\varphi(k_1,k_2),k_3)=\varphi(\varphi(k_1,k_2),\varphi(k_3, 0_{\varphi}))$$
 
-By the equality in the middle of the equation $\varphi$ is associative.
+We can conclude that $\varphi$ is associative and $(a,\varphi)$ is a monoid.
