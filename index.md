@@ -1,8 +1,8 @@
 This blog is currently under construction.
  
-First Semester | Second Semester
----------------|-----------------
-Linear Algebra 1 (V1G3)| Linear Algebra 2 (V1G4)
-Analysis 1 (V1G1) | Analysis 2 (V1G2)
-Algorithmic mathematics 1 (V1G5) | Algorithmic mathematics 2 (V1G6)
-Nothing more :) | Seminar on: Markovchains and stochastic algorithms (S1G1) 
+First semester | Second semester | Third semester
+---------------|-----------------|--------------
+Lineare Algebra 1 (V1G3) | Lineare Algebra 2 (V1G4) | Einführung in die Algebra (V2A1)
+Analysis 1 (V1G1) | Analysis 2 (V1G2) | Analysis 3 (V2B1)
+Algorithmische Mathematik 1 (V1G5) | Algorithmische Mathematik 2 (V1G6) | Datenzentrierte Informatik (BA-INF 035)
+Only 3 classes | Seminar: Markovketten und stochastische Algorithmen (S1G1) | Einführung in die Wahrscheinlichkeitstheorie (V2F1)
