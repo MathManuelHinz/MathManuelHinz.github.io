@@ -1,6 +1,6 @@
-This blog is currently under construction.
- 
-First semester | Second semester | Third semester
+Currently studying mathematics. Details:
+
+First semester | Second semester | Third semester (current)
 ---------------|-----------------|--------------
 Lineare Algebra 1 (V1G3) | Lineare Algebra 2 (V1G4) | Einführung in die Algebra (V2A1)
 Analysis 1 (V1G1) | Analysis 2 (V1G2) | Analysis 3 (V2B1)
