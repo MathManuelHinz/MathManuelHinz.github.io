@@ -10,7 +10,7 @@ Chrono is saving, managing and analyzing your day, deadlines and sleep patterns.
 
 Chrono is a command line. There are no buttons, just you and your keyboard. There is no need to search through nested menus because every command needs at most 1 previous command("setr") to work! If you feel like you are typing the same command over and over again while only changing one argument, Chrono also features aliases (including currying!) to eliminate such repetitive inputs. 
 
-Aliases give you the option to customize Chrono in a meaningful way. Aliases support a pipe operator (think a simplified version of f#'s |>), partial function application, (limited) splicing and even simple higher-order functions<sup id="a2">[2](#f2)</sup>. This should enable you to optimize your workflow immensely.
+Aliases give you the option to customize Chrono in a meaningful way. Aliases support a pipe operator (think a simplified version of f#'s pipe operator), partial function application, (limited) splicing and even simple higher-order functions<sup id="a2">[2](#f2)</sup>. This should enable you to optimize your workflow immensely.
 
 ## Reasons why you should use Chrono
 
