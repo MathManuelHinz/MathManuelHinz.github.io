@@ -389,7 +389,7 @@ If you find yourself writing the same command over and over again only changing 
 Each alias uses the following structure:
 
 Write out the command as you would type it in Chrono, but replace each argument that should be given to your alias
-with \"\$1\",\"\$2\" up to some finite \"\$n\". Be aware that those arguments start at \$1 and not \$0! If you want to reference all the arguments not referenced explicitly, you can use $N which will insert all of those arguments
+with \$1,\$2 up to some finite \$n. Be aware that those arguments start at \$1 and not \$0! If you want to reference all the arguments not referenced explicitly, you can use $N which will insert all of those arguments
 
 A real-life example: While coding and documenting Chrono, I wanted to create Chrono events with the same name and tag quite frequently, so I added the following alias:
 
